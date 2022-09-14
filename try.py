@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 file = "mall_customer.csv"
 df = pd.read_csv(file)
