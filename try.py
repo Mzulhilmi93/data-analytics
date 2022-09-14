@@ -1,5 +1,7 @@
 import streamlit as st
 import pandas as pd
+import seaborn as sns
+mallcust = sns.load_dataset('mall_customer')
 from sklearn import datasets
 from sklearn.cluster import KMeans
 
