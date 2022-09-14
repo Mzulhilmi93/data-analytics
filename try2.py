@@ -1,3 +1,7 @@
+import streamlit as st
+import pandas as pd
+from sklearn.cluster import KMeans
+
 step_size = 0.01
 kmeans = KMeans(n_clusters=5)
 kmeans.fit(X)
