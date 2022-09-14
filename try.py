@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-file = "/content/mall_customer.csv"
+file = "C:\Users\acer\Your team Dropbox\MUHAMMAD ZULHILMI DAUD\PC\Desktop\AIRASIA ACADEMY - DATA ANALYST\Python\datasets-20220911T063729Z-001\datasets"
 df = pd.read_csv(file)
 from sklearn.cluster import KMeans
 
