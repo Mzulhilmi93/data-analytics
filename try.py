@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-file = "https://github.com/Mzulhilmi93/data-analytics/blob/main/mall_customer.csv"
-df = pd.read_csv(file)
 from sklearn.cluster import KMeans
 
 st.write("""
