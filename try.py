@@ -1,20 +1,44 @@
 import streamlit as st
 import pandas as pd
-from sklearn.cluster import KMeans
-file = "mall_customer.csv"
-df = pd.read_csv(file)
+from sklearn import datasets
+from sklearn.ensemble import RandomForestClassifier
 
 st.write("""
-# Kmeans Clustering for Mall Customer
-This app is to show the relation between **Income** and **Spending**.
+# Simple Iris Flower Prediction App
+This app predicts the **Iris flower** type!
 """)
 
-features = ['Annual_Income_(k$)', 'Spending_Score']
-X = df[features]
-kmeans = KMeans(n_clusters=5)
-kmeans.fit(X)
-y_kmeans = kmeans.predict(X)
-scatter(X['Annual_Income_(k$)'], X['Spending_Score'], c=y_kmeans, s=50, cmap='viridis')
+st.sidebar.header('User Input Parameters')
 
-centers = kmeans.cluster_centers_
-scatter(centers[:,0], centers[:,1], c='black', s=200, alpha=0.5);
+def user_input_features():
+    Annual_Income = st.sidebar.slider('Annual Income', 10, 200, 10)
+    Spending_Score = st.sidebar.slider('Spending Score', 1, 90, 5)
+    data = {'Annual_Income': Annual_Income_(k$),
+            'Spending_Score': Spending_Score}
+    features = pd.DataFrame(data, index=[0])
+    return features
+
+df = user_input_features()
+
+st.subheader('User Input parameters')
+st.write(df)
+
+iris = datasets.load_iris()
+X = iris.data
+Y = iris.target
+
+clf = RandomForestClassifier()
+clf.fit(X, Y)
+
+prediction = clf.predict(df)
+prediction_proba = clf.predict_proba(df)
+
+st.subheader('Class labels and their corresponding index number')
+st.write(iris.target_names)
+
+st.subheader('Prediction')
+st.write(iris.target_names[prediction])
+#st.write(prediction)
+
+st.subheader('Prediction Probability')
+st.write(prediction_proba)
