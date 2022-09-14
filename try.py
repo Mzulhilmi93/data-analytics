@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
-from sklearn import datasets
+file = "/content/mall_customer.csv"
+df = pd.read_csv(file)
 from sklearn.cluster import KMeans
 
 st.write("""
