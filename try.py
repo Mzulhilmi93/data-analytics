@@ -6,7 +6,7 @@ st.write("""
 # Kmeans Clustering for Mall Customer
 This app is to show the relation between **Income** and **Spending**.
 """)
-mallcust = datasets.load_mall_customer()
+
 kmeans = KMeans(n_clusters=5)
 kmeans.fit(X)
 y_kmeans = kmeans.predict(X)
