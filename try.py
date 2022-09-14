@@ -1,12 +1,16 @@
 import streamlit as st
 import pandas as pd
 from sklearn.cluster import KMeans
+file = "/content/mall_customer.csv"
+df = pd.read_csv(file)
 
 st.write("""
 # Kmeans Clustering for Mall Customer
 This app is to show the relation between **Income** and **Spending**.
 """)
 
+features = ['Annual_Income_(k$)', 'Spending_Score']
+X = df[features]
 kmeans = KMeans(n_clusters=5)
 kmeans.fit(X)
 y_kmeans = kmeans.predict(X)
